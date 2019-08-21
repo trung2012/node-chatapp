@@ -70,4 +70,9 @@ sendLocationButton.addEventListener('click', () => {
   })
 })
 
-socket.emit('join', { username, room })
+socket.emit('join', { username, room }, (err) => {
+  if (err) {
+    alert(err)
+    location.href = '/'
+  }
+})
